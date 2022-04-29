@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/adapter_module_item.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/custom_progress_bg.xml" value="0.1287037037037037" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_first_enter_activity_btn2.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_first_enter_activity_btn2_background.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_first_enter_activity_next_btn.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_first_entrance_activity_btn2.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_hello_activity1_btn.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_hello_activity1_img.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_hello_activity_btn.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_hello_activity_img.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_settings_activity__gear_img.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_volume_off_icon.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/ic_volume_on_icon.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/drawable/spiner_svg.xml" value="0.2203125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/activity_main.xml" value="0.13949275362318841" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/adapter_module_item.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/adapter_section_item.xml" value="0.1" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/custom_toast.xml" value="0.18070652173913043" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/entrance_activivty_spinner_item.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/first_enterance_activity.xml" value="0.25" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/first_entrance_activity.xml" value="0.2" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/hello_activity.xml" value="0.25" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/hello_activity1.xml" value="0.25" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/learning_activity.xml" value="0.17889492753623187" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/module_activity.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/layout/settings_activity.xml" value="0.264" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/mipmap-anydpi-v26/ic_first_enter_activity_btn2.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper1/app/src/main/res/mipmap-anydpi-v26/ic_first_enter_activity_btn2_round.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/susli/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.17291666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/activity_background"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_settings_activity__gear_img"/>
+
+        <TextView
+            android:paddingLeft="20dp"
+            android:text="@string/settings_activity__tv1"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <View android:background="@color/black"
+        android:layout_width = "match_parent"
+        android:layout_height="2dp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выбранный класс:"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:paddingRight="10dp"/>
+
+        <TextView
+            android:id="@+id/settings_activity__grade_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            android:textColor="@color/black"
+            android:textSize="40sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/black"
+            android:gravity="left"
+            android:paddingRight="7dp"
+            android:text="Автоматическая озвучка слов:"
+            android:textSize="30sp"/>
+
+        <ImageButton
+            android:id="@+id/settings_activity__volume_btn"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/activity_background"
+            android:paddingRight="30dp"
+            android:src="@drawable/ic_volume_on_icon" />
+    </LinearLayout>
+
+    <TextView
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Язык интерфейса:"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:paddingBottom="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/settings_activity__langUK_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/activity_background"
+            android:src="@drawable/ic_settings_activity__uk_btn" />
+
+        <ImageButton
+            android:id="@+id/settings_activity__langRU_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/activity_background"
+            android:src="@drawable/ic_settings_activity__rus_btn" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/settings_activity__ok_btn"
+        android:paddingTop="30dp"
+        android:paddingRight="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/activity_background"
+        android:src="@drawable/ic_settings_activity__ok_btn"
+        android:layout_gravity="right"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"/>
+
+
+</LinearLayout>

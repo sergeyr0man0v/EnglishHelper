@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">EnglishHelper1</string>
+    <string name="first_enter_activity_tv1">Выбери свой класс:</string>
+    <string name="first_enter_activity_tv2">Какая оценка у тебя была в прошлой четверти по англу?</string>
+    <string name="settings_activity__tv1">Настройки</string>
+</resources>
