@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/main_activity__grade_tv"
-            android:text=""
+            android:text="@string/grade_postfix"
             android:textSize="30sp"
             android:textColor="@color/black"
             android:layout_width="0dp"

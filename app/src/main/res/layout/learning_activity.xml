@@ -10,13 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
 
-        <!--<ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src=""/>-->
-
         <TextView
-            android:id="@+id/module_activity__module_name_tv"
+            android:id="@+id/learning_activity__section_name_tv"
             android:text=""
             android:textSize="30sp"
             android:textColor="@color/black"
@@ -26,7 +21,6 @@
             android:layout_height="match_parent"/>
 
         <ImageButton
-            android:id="@+id/module_activity__settings_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/activity_background"
@@ -35,54 +29,79 @@
 
     </LinearLayout>
 
+    <View android:background="@color/black"
+        android:layout_width = "match_parent"
+        android:layout_height="2dp"/>
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0"/>
+        android:layout_weight="4"/>
 
     <TextView
+        android:id="@+id/learning_activity__enValue_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:paddingBottom="30dp"/>
+        android:paddingBottom="30dp"
+        android:paddingLeft="12dp"
+        android:text="Word"/>
 
     <TextView
+        android:id="@+id/learning_activity__ruValue_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:padding="12dp"
+        android:text="Слово"/>
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0"/>
+        android:layout_weight="3"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="12dp">
 
-        <ImageButton
+        <Space
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src=""/>
+            android:layout_height="match_parent"/>
 
-        <ImageButton
+        <Button
+            android:id="@+id/learning_activity__volume_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_volume_on_icon"
+            />
+
+        <Space
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src=""/>
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/learning_activity__next_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_settings_activity__ok_btn"
+            />
+        <Space
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
-
-
+        android:layout_weight="7"/>
 
 
 </LinearLayout>

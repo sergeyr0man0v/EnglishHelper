@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/word_list_item__en__tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:text="word"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/word_list_item__ru__tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:text="слово"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/word_list_item__volume__btn"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/ic_volume_on_icon"
+        android:layout_marginRight="12dp"/>
+
+</LinearLayout>

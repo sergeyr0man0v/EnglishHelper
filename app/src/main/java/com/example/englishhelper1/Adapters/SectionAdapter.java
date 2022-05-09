@@ -33,6 +33,9 @@ public class SectionAdapter extends ArrayAdapter<Section> {
 
         //Заполнение адатера
         ((TextView) convertView.findViewById(R.id.section_item_name)).setText(section.getName());
+
+        ((ProgressBar) convertView.findViewById(R.id.section_item__progressBar)).setProgress(section.getProgress());
+        ((TextView) convertView.findViewById(R.id.section_item__progress_tv)).setText(String.valueOf(section.getProgress()) + "%");
         /*progressBar = ((ProgressBar) convertView.findViewById((R.id.section_item_progressBar)));
         progressBar.setProgress(section.getProgress());
         ((ProgressBar) convertView.findViewById(R.id.progressBar1)).setProgress(section.getProgress());

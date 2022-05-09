@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="activity_background">#DDDDDD</color>
+    <color name="custom_progressBar_color">#20FF29</color>
+    <color name="fragment_result_background">#EFC137</color>
+    <color name="fragment_result__button_color">#FF5722</color>
+
 </resources>

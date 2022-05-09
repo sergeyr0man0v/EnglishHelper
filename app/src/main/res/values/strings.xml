@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">EnglishHelper1</string>
+    <string name="app_name">EnglishHelper</string>
     <string name="first_enter_activity_tv1">Выбери свой класс:</string>
     <string name="first_enter_activity_tv2">Какая оценка у тебя была в прошлой четверти по англу?</string>
     <string name="settings_activity__tv1">Настройки</string>
+    <string name="grade_postfix">класс</string>
+    <string name="settings_activity__selected_lang_tv">Язык интерфейса:</string>
+    <string name="settings_activity__auto_volume_tv">Автоматическая озвучка слов:</string>
+    <string name="settings_activity__selected_grade_tv">Выбранный класс:</string>
+    <string name="section_activity__word_list_tv">Список слов</string>
+    <string name="section_activity__learning_mode_tv">Режим заучивания</string>
+    <string name="section_activity__test_tv">Тест</string>
+    <string name="section_activity__number_of_words__tv">Всего слов:</string>
+
 </resources>

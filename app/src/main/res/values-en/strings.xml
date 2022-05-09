@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">EnglishHelper</string>
+    <string name="first_enter_activity_tv1">Choose your grade:</string>
+    <string name="first_enter_activity_tv2">What mark did you have last quarter in English?</string>
+    <string name="settings_activity__tv1">Settings</string>
+    <string name="grade_postfix">grade</string>
+    <string name="settings_activity__selected_lang_tv">Interface language:</string>
+    <string name="settings_activity__auto_volume_tv">Automatic voice acting:</string>
+    <string name="settings_activity__selected_grade_tv">Selected grade:</string>
+    <string name="section_activity__word_list_tv">Word list</string>
+    <string name="section_activity__learning_mode_tv">Learning mode</string>
+    <string name="section_activity__test_tv">Test</string>
+
+</resources>

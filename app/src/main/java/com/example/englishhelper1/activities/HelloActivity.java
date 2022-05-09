@@ -21,6 +21,7 @@ public class HelloActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HelloActivity.this, FirstEntranceActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/activity_background"
+    android:id="@+id/settings_activity__linear_layout"
     >
 
     <LinearLayout
@@ -48,7 +49,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Выбранный класс:"
+            android:text="@string/settings_activity__selected_grade_tv"
             android:textSize="30sp"
             android:textColor="@color/black"
             android:paddingRight="10dp"/>
@@ -77,7 +78,7 @@
             android:textColor="@color/black"
             android:gravity="left"
             android:paddingRight="7dp"
-            android:text="Автоматическая озвучка слов:"
+            android:text="@string/settings_activity__auto_volume_tv"
             android:textSize="30sp"/>
 
         <ImageButton
@@ -95,7 +96,7 @@
         android:paddingTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Язык интерфейса:"
+        android:text="@string/settings_activity__selected_lang_tv"
         android:textSize="30sp"
         android:textColor="@color/black"
         android:paddingBottom="30dp"/>
@@ -130,7 +131,15 @@
         android:layout_height="wrap_content"
         android:background="@color/activity_background"
         android:src="@drawable/ic_settings_activity__ok_btn"
-        android:layout_gravity="right"/>
+        android:layout_gravity="right"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/settings_activity__clear_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Очистить"
+        android:layout_marginLeft="30dp"/>
 
     <Space
         android:layout_width="match_parent"

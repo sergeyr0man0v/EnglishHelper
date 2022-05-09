@@ -1,6 +1,7 @@
 package com.example.englishhelper1.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -14,12 +15,11 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 
 public class FirstEntranceActivity extends AppCompatActivity {
 
-    //public static boolean isNewUser = true;
-    public static Integer selectedGrade = null;
     public static int lastSemesterMark;
     ImageButton[] marksBtn;
     ImageButton next_btn;
@@ -46,16 +46,19 @@ public class FirstEntranceActivity extends AppCompatActivity {
         // Вызываем адаптер
         spinner.setAdapter(adapter);
 
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent,
                                        View itemSelected, int selectedItemPosition, long selectedId) {
 
                 int[] choose = getResources().getIntArray(R.array.grades);
-                selectedGrade = selectedItemPosition + 1;
+                MyPreferences.settingEditor.putInt(MyPreferences.APP_PREFERENCES_GRADE, selectedItemPosition + 1);
+                MyPreferences.settingEditor.apply();
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
-                selectedGrade = 11;
+                MyPreferences.settingEditor.putInt(MyPreferences.APP_PREFERENCES_GRADE, 11);
+                MyPreferences.settingEditor.apply();
             }
         });
 
@@ -69,7 +72,7 @@ public class FirstEntranceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FirstEntranceActivity.this, SettingsActivity.class);
-                intent.putExtra(MainActivity.currentAct, MainActivity.class);
+                //intent.putExtra(MainActivity.currentAct, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -133,6 +136,8 @@ public class FirstEntranceActivity extends AppCompatActivity {
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();
+
+
         /*Toast toast3 = Toast.makeText(getApplicationContext(),
                 R.string.catfood, Toast.LENGTH_LONG);
         toast3.setGravity(Gravity.CENTER, 0, 0);

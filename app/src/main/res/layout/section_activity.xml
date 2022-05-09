@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/activity_background"
+    tools:context=".activities.SectionActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+
+        <TextView
+            android:id="@+id/section_activity__section_name__tv"
+            android:text="1a"
+            android:textSize="35sp"
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+
+        <ImageButton
+            android:id="@+id/section_activity__settings_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/activity_background"
+            android:paddingRight="10dp"
+            android:src="@drawable/ic_settings_activity__gear_img" />
+
+    </LinearLayout>
+
+
+    <View android:background="@color/black"
+        android:layout_width = "match_parent"
+        android:layout_height="2dp"/>
+
+    <Space
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/section_activity__number_of_words__tv"
+            android:textSize="25sp"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/section_activity__number_of_words__tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:textColor="@color/black"
+            android:text=""
+            android:paddingLeft="5dp"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/section_activity__word_list__btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/section_activity__word_list_tv"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textAlignment="viewStart"
+        android:backgroundTint="@color/activity_background"
+        android:layout_margin="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="12dp">
+        <Button
+            android:id="@+id/section_activity__to_learning__btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/section_activity__learning_mode_tv"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textAlignment="viewStart"
+            android:backgroundTint="@color/activity_background"/>
+        <TextView
+            android:id="@+id/section_activity__number_of_learned__tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/32"
+            android:textSize="35sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"/>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/section_activity__to_test__btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/section_activity__test_tv"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textAlignment="viewStart"
+        android:backgroundTint="@color/activity_background"
+        android:layout_margin="12dp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
+
+
+
+</LinearLayout>
