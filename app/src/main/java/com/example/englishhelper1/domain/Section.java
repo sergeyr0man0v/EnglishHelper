@@ -4,16 +4,33 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Section implements Parcelable {
 
+    private int id;
     private String name;
     private int progress = 0;
+    private int moduleId;
+    private String description;
 
-    Word[] words;
+    private ArrayList<Word> words;
 
     public Section(String name) {
         this.name = name;
+    }
+
+    public Section(String name, String description, int moduleId) {
+        this.name = name;
+        this.description = description;
+        this.moduleId = moduleId;
+    }
+
+    public Section(int id, String name, int moduleId, String description) {
+        this.id = id;
+        this.name = name;
+        this.moduleId = moduleId;
+        this.description = description;
     }
 
     public Section(String name, int progress) {
@@ -21,22 +38,61 @@ public class Section implements Parcelable {
         this.progress = progress;
     }
 
-    public Section(String name, Word[] words) {
+    /*public Section(String name, Word[] words) {
         this.name = name;
         this.words = words;
-    }
+    }*/
 
     protected Section(Parcel in) {
+        id = in.readInt();
         name = in.readString();
         progress = in.readInt();
-        words = in.createTypedArray(Word.CREATOR);
+        moduleId = in.readInt();
+        //words = in.createTypedArrayList(Word.CREATOR);
     }
 
-    public Section(String name, int progress, Word[] words) {
+    /*public Section(String name, int progress, Word[] words) {
         this.name = name;
         this.progress = progress;
         this.words = words;
+    }*/
+
+    /*public Word[] getWords() {
+        return words;
+    }*/
+
+    public int getId() {
+        return id;
     }
+
+    public ArrayList<Word> getWords() {
+        return words;
+    }
+
+    public void setWords(ArrayList<Word> words) {
+        this.words = words;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getModuleId() {
+        return moduleId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+
 
     public static final Creator<Section> CREATOR = new Creator<Section>() {
         @Override
@@ -50,31 +106,25 @@ public class Section implements Parcelable {
         }
     };
 
-    public Word[] getWords() {
-        return words;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getProgress() {
-        return progress;
-    }
-
-    public void setProgress(int progress) {
-        this.progress = progress;
-    }
-
     @Override
     public int describeContents() {
         return 0;
     }
 
-    @Override
+    /*@Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeInt(progress);
-        parcel.writeTypedArray(words, i);
+        parcel.writeInt(moduleId);
+    }*/
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(name);
+        parcel.writeInt(progress);
+        parcel.writeInt(moduleId);
+        /*Word[] words1 = words.toArray(new Word[0]);
+        parcel.writeTypedArray(words1, i);*/
     }
 }

@@ -1,18 +1,19 @@
 package com.example.englishhelper1;
 
-import android.app.Service;
+
+import android.app.Application;
 import android.speech.tts.TextToSpeech;
 
 import java.util.Locale;
 
-public final class Speaker {
+public final class Speaker extends Application {
 
-    /*TextToSpeech textToSpeech1 = new TextToSpeech(getAc, new TextToSpeech.OnInitListener() {
+    /*public static TextToSpeech textToSpeech = new TextToSpeech(getBaseContext(), new TextToSpeech.OnInitListener() {
         @Override public void onInit(int initStatus) {
             if (initStatus == TextToSpeech.SUCCESS) {
-                textToSpeech1.setLanguage(Locale.US);
-                textToSpeech1.setPitch(1.3f);
-                textToSpeech1.setSpeechRate(0.7f);
+                textToSpeech.setLanguage(Locale.US);
+                textToSpeech.setPitch(1.3f);
+                textToSpeech.setSpeechRate(0.7f);
             }
         }
     });;*/

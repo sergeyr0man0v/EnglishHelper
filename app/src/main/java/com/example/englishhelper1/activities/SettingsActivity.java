@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,6 +16,9 @@ import android.widget.Toast;
 
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
+import com.example.englishhelper1.domain.Word;
+import com.example.englishhelper1.rest.ExternalData;
+import com.example.englishhelper1.rest.ServerApiVolley;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -26,19 +30,18 @@ public class SettingsActivity extends AppCompatActivity {
     public static boolean autoVolume = true;
     public static String language = "ru";
 
-    //public static final String currentAct = "PREV_ACTIVITY"
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
         TextView tv1 = (TextView) findViewById(R.id.settings_activity__grade_tv);
-        tv1.setText(String.valueOf(MainActivity.mySettings.getInt(MyPreferences.APP_PREFERENCES_GRADE, 0)));
+        tv1.setText(String.valueOf(MyPreferences.mySettings.getInt(MyPreferences.APP_PREFERENCES_GRADE, 0)));
 
 
         ImageButton volumeBtn = (ImageButton) findViewById(R.id.settings_activity__volume_btn);
-        if (!MainActivity.mySettings.getBoolean(MyPreferences.APP_PREFERENCES_AUTO_VOLUME, true)){
+        if (!MyPreferences.mySettings.getBoolean(MyPreferences.APP_PREFERENCES_AUTO_VOLUME, true)){
             volumeBtn.setImageResource(R.drawable.ic_volume_off_icon);
         }
         volumeBtn.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +86,7 @@ public class SettingsActivity extends AppCompatActivity {
                     MyPreferences.settingEditor.apply();
                     Toast.makeText(getApplicationContext(), "Choice is made!", Toast.LENGTH_SHORT).show();
                 }
-                if (MainActivity.mySettings.getString(MyPreferences.APP_PREFERENCES_LANGUAGE, "ru").equals("ru")){
+                if (MyPreferences.mySettings.getString(MyPreferences.APP_PREFERENCES_LANGUAGE, "ru").equals("ru")){
                     Locale locale = new Locale("ru");
                     Locale.setDefault(locale);
                     Configuration configuration = new Configuration();
@@ -105,14 +108,15 @@ public class SettingsActivity extends AppCompatActivity {
 
         okBtn = (ImageButton) findViewById(R.id.settings_activity__ok_btn);
 
-        if (MainActivity.mySettings.getBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, true)) {
+        if (MyPreferences.mySettings.getBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, true)) {
             okBtn.setVisibility(View.VISIBLE);
             okBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                     //(Class<?>) getIntent().getSerializableExtra(SettingsActivity.currentAct));
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    //intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
                     startActivity(intent);
                 }

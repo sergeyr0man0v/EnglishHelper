@@ -16,13 +16,14 @@ import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.domain.Section;
+import com.example.englishhelper1.rest.ExternalData;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class ModuleActivity extends AppCompatActivity {
 
-    public static final String currentAct = "PREV_ACTIVITY";
     final Random rnd = new Random();
     Module currentModule;
     TextView moduleNameTv;
@@ -34,10 +35,11 @@ public class ModuleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.module_activity);
 
-        /*Bundle arguments = getIntent().getExtras();
-        currentModule = (Module) arguments.getParcelable("1");*/
-
         currentModule = (Module) getIntent().getParcelableExtra(MyPreferences.SELECTED_MODULE);
+
+        /*int moduleId = (int) getIntent().getIntExtra(MyPreferences.SELECTED_MODULE, 0);
+
+        currentModule = ExternalData.modules.get(moduleId);*/
 
         moduleNameTv = findViewById(R.id.module_activity__module_name_tv);
         moduleNameTv.setText(currentModule.getName());
@@ -58,9 +60,17 @@ public class ModuleActivity extends AppCompatActivity {
             sections[i] = new Section(String.valueOf((char)(97 + i)), rnd.nextInt(100));
         }*/
 
-        Section[] data = currentModule.getSections();
+        //Section[] data = currentModule.getSections();
 
-        SectionAdapter adapter = new SectionAdapter(this, data);
+        ArrayList<Section> data = new ArrayList<>();
+
+        for (Section section: ExternalData.sections) {
+            if (section.getModuleId() == currentModule.getId())
+                data.add(section);
+        }
+
+        //SectionAdapter adapter = new SectionAdapter(this, data);
+        SectionAdapter adapter = new SectionAdapter(this, data.toArray(new Section[0]));
         listView = (ListView) findViewById(R.id.section_list);
         listView.setAdapter(adapter);
 
@@ -68,7 +78,8 @@ public class ModuleActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(ModuleActivity.this, SectionActivity.class);
-                intent.putExtra(MyPreferences.SELECTED_SECTION, (Parcelable) data[i]);
+                //intent.putExtra(MyPreferences.SELECTED_SECTION, (Parcelable) data[i]);
+                intent.putExtra(MyPreferences.SELECTED_SECTION, (Parcelable) data.get(i));
                 startActivity(intent);
             }
         });

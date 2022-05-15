@@ -8,21 +8,40 @@ import java.io.Serializable;
 public class Module implements Parcelable {
 
     private String name;
+    private String description;
+    private int id;
 
-    Section[] sections;
+    //Section[] sections;
 
     public Module(String name) {
         this.name = name;
     }
 
-    public Module(String name, Section[] sections) {
+    public Module(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public Module(String name, String description, int id) {
+        this.name = name;
+        this.description = description;
+        this.id = id;
+    }
+
+    /*public Module(String name, Section[] sections) {
         this.name = name;
         this.sections = sections;
-    }
+    }*/
+
+    /*protected Module(Parcel in) {
+        name = in.readString();
+        sections = in.createTypedArray(Section.CREATOR);
+    }*/
 
     protected Module(Parcel in) {
         name = in.readString();
-        sections = in.createTypedArray(Section.CREATOR);
+        description = in.readString();
+        id = in.readInt();
     }
 
     public static final Creator<Module> CREATOR = new Creator<Module>() {
@@ -37,12 +56,20 @@ public class Module implements Parcelable {
         }
     };
 
-    public Section[] getSections() {
+    /*public Section[] getSections() {
         return sections;
-    }
+    }*/
 
     public String getName() {
         return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override
@@ -53,6 +80,13 @@ public class Module implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
-        parcel.writeTypedArray(sections, i);
+        parcel.writeString(description);
+        parcel.writeInt(id);
     }
+
+    /*@Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeTypedArray(sections, i);
+    }*/
 }

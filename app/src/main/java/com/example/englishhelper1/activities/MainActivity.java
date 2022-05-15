@@ -4,12 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -22,13 +25,23 @@ import com.example.englishhelper1.R;
 import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.domain.Section;
 import com.example.englishhelper1.domain.Word;
+import com.example.englishhelper1.localDb.OpenHelper;
+import com.example.englishhelper1.rest.ExternalData;
+import com.example.englishhelper1.rest.ExternalDatabaseService;
+import com.example.englishhelper1.rest.ServerApiVolley;
+import com.example.englishhelper1.rest.models.GradeDescription;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static SharedPreferences mySettings;
 
     TextView gradeTv;
     ListView listView;
@@ -38,21 +51,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        mySettings = getSharedPreferences(MyPreferences.APP_PREFERENCES, Context.MODE_PRIVATE);
-
-
-        if (!mySettings.contains(MyPreferences.APP_PREFERENCES_GRADE)) {
-            Intent intent = new Intent(MainActivity.this, HelloActivity.class);
-            //intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-            startActivity(intent);
+        if (ExternalData.modules.isEmpty()) {
+            ServerApiVolley serverApiVolley = new ServerApiVolley(this);
+            serverApiVolley.fillGrade(11);
+            this.recreate();
         }
+
         setContentView(R.layout.activity_main);
 
-        MyPreferences.settingEditor.putBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, false);
-
         gradeTv = (TextView) findViewById(R.id.main_activity__grade_tv);
-        gradeTv.setText(String.valueOf(mySettings.getInt(MyPreferences.APP_PREFERENCES_GRADE, 0)) + " " + gradeTv.getText());
+        //gradeTv.setText(String.valueOf(StartActivity.mySettings.getInt(MyPreferences.APP_PREFERENCES_GRADE, 0)) + " " + gradeTv.getText());
+        gradeTv.setText(String.valueOf("11 " + gradeTv.getText()));
 
         goToSettingsBtn = (ImageButton) findViewById(R.id.main_activity__settings_btn);
         goToSettingsBtn.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +77,15 @@ public class MainActivity extends AppCompatActivity {
         /////// заполнение данных для ListView
         ///////////////////////////////////////////////
 
-        Module[] data = createTestData();
+        //Module[] data = createTestData();
+        Module[] data = new Module[ExternalData.modules.size()];
+        for (int i = 0; i < data.length; i++) {
+            data[i] = ExternalData.modules.get(i);
+        }
 
+        //ModuleAdapter adapter = new ModuleAdapter(this, data);
         ModuleAdapter adapter = new ModuleAdapter(this, data);
+
         listView = (ListView) findViewById(R.id.module_list);
         listView.setAdapter(adapter);
 
@@ -78,15 +93,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(MainActivity.this, ModuleActivity.class);
-                intent.putExtra(MyPreferences.SELECTED_MODULE, (Parcelable) data[i]);
+                //intent.putExtra(MyPreferences.SELECTED_MODULE, (Parcelable) data[i]);
+                intent.putExtra(MyPreferences.SELECTED_MODULE, data[i]);
                 startActivity(intent);
             }
         });
 
-
     }
 
-    static Module[] createTestData(){
+    static class DataLoad extends AsyncTask<Void, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            //ExternalData.getDataFromExternalDb();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void unused) {
+
+            super.onPostExecute(unused);
+        }
+    }
+
+    /*static Module[] createTestData(){
         Module[] data = new Module[2];
 
         Section[] sections1 = new Section[2];
@@ -113,5 +143,6 @@ public class MainActivity extends AppCompatActivity {
         data[1] = new Module("Module 2", sections2);
 
         return data;
-    }
+    }*/
+
 }

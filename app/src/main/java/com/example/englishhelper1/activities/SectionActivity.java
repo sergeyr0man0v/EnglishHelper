@@ -14,7 +14,6 @@ import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.domain.Section;
 
-import java.io.Serializable;
 import java.util.Locale;
 
 public class SectionActivity extends AppCompatActivity {
@@ -49,13 +48,32 @@ public class SectionActivity extends AppCompatActivity {
             }
         });;
 
+
+
         currentSection = (Section) getIntent().getParcelableExtra(MyPreferences.SELECTED_SECTION);
 
         sectionNameTv = findViewById(R.id.section_activity__section_name__tv);
         sectionNameTv.setText(currentSection.getName());
 
         numberOfWordsTv = findViewById(R.id.section_activity__number_of_words__tv);
-        numberOfWordsTv.setText(String.valueOf(currentSection.getWords().length));
+
+        /*ArrayList<Word> words = new ArrayList<>();
+
+        for (Word word : ExternalData.words) {
+            if(word.getSectionId() == currentSection.getId())
+                words.add(word);
+
+        }
+
+        //currentSection.setWords(words);
+
+        Word[] data = new Word[words.size()];
+        for (int i = 0; i < words.size(); i++) {
+            data[i] = words.get(i);
+        }*/
+
+        //numberOfWordsTv.setText(String.valueOf(currentSection.getWords().size()));
+        numberOfWordsTv.setText(String.valueOf(23));
 
         wordListBtn = findViewById(R.id.section_activity__word_list__btn);
         wordListBtn.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +81,7 @@ public class SectionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SectionActivity.this, WordListActivity.class);
                 intent.putExtra(MyPreferences.SELECTED_SECTION, (Parcelable) currentSection);
+                //intent.putExtra("words", data);
                 startActivity(intent);
             }
         });
@@ -74,7 +93,16 @@ public class SectionActivity extends AppCompatActivity {
                 Intent intent = new Intent(SectionActivity.this, LearningActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 intent.putExtra(MyPreferences.SELECTED_SECTION, currentSection);
+                //intent.putExtra("words", data);
                 startActivity(intent);
+            }
+        });
+
+        toTestBtn = findViewById(R.id.section_activity__to_test__btn);
+        toTestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
@@ -83,5 +111,10 @@ public class SectionActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         textToSpeech.shutdown();
+    }
+
+    public static void volume(String value){
+        String utteranceId = String.valueOf(value.hashCode());
+        SectionActivity.textToSpeech.speak(value, TextToSpeech.QUEUE_FLUSH,null, utteranceId);
     }
 }

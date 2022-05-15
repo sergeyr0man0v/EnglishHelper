@@ -2,9 +2,9 @@ package com.example.englishhelper1.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,9 +13,9 @@ import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.domain.Section;
 import com.example.englishhelper1.domain.Word;
+import com.example.englishhelper1.rest.ExternalData;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class LearningActivity extends AppCompatActivity {
@@ -32,7 +32,7 @@ public class LearningActivity extends AppCompatActivity {
     //int currentWord = 0;
 
     Random random = new Random();
-    boolean autoVolume = MainActivity.mySettings.getBoolean(
+    boolean autoVolume = MyPreferences.mySettings.getBoolean(
             MyPreferences.APP_PREFERENCES_AUTO_VOLUME,true);
 
 
@@ -43,11 +43,22 @@ public class LearningActivity extends AppCompatActivity {
 
         Section section = getIntent().getParcelableExtra(MyPreferences.SELECTED_SECTION);
 
+        //words = section.getWords();
+
+        words = new ArrayList<>();
+
+        Log.d("SECTION", String.valueOf(section.getId()));
+
+        for (Word word : ExternalData.words) {
+            Log.d("SECTION", String.valueOf(word.getSectionId()));
+            if(word.getSectionId() == section.getId()) {
+                words.add(word);
+            }
+        }
+        Log.d("SECTION", String.valueOf(words.size()));
         sectionName = findViewById(R.id.learning_activity__section_name_tv);
         sectionName.setText(section.getName());
 
-        Word[] words1 = section.getWords();
-        words = new ArrayList<Word>(Arrays.asList(words1));
 
         currentWord = words.get(random.nextInt(words.size()));
         words.remove(currentWord);
@@ -104,9 +115,7 @@ public class LearningActivity extends AppCompatActivity {
     }
 
     private void volume(){
-        String value = currentWord.getEngValue();
-        String utteranceId = value;
-        SectionActivity.textToSpeech.speak(value, TextToSpeech.QUEUE_FLUSH,null, utteranceId);
+        SectionActivity.volume(currentWord.getEngValue());
     }
 
 }

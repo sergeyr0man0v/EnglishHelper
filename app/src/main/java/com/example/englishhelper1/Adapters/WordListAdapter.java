@@ -42,8 +42,7 @@ public class WordListAdapter extends ArrayAdapter<Word> {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String utteranceId = word.getEngValue();
-                        SectionActivity.textToSpeech.speak(word.getEngValue(),TextToSpeech.QUEUE_FLUSH,null,utteranceId);
+                        SectionActivity.volume(word.getEngValue());
                     }
                 });
 

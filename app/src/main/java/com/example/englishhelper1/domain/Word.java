@@ -12,10 +12,17 @@ public class Word implements Parcelable {
     private String engValue;
     private String ruValue;
     boolean isLearned = false;
+    private int sectionId;
 
     public Word(String engValue, String ruValue) {
         this.engValue = engValue;
         this.ruValue = ruValue;
+    }
+
+    public Word(String engValue, String ruValue, int sectionId) {
+        this.engValue = engValue;
+        this.ruValue = ruValue;
+        this.sectionId = sectionId;
     }
 
     public Word(String engValue, String ruValue, boolean isLearned) {
@@ -49,6 +56,14 @@ public class Word implements Parcelable {
 
     public String getRuValue() {
         return ruValue;
+    }
+
+    public boolean isLearned() {
+        return isLearned;
+    }
+
+    public int getSectionId() {
+        return sectionId;
     }
 
     @Override

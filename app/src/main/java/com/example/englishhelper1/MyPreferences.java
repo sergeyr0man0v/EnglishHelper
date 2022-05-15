@@ -3,9 +3,14 @@ package com.example.englishhelper1;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.englishhelper1.activities.MainActivity;
+import com.example.englishhelper1.activities.StartActivity;
 
 public final class MyPreferences {
+
+    Context context;
+    public static SharedPreferences mySettings;
+
+    public static SharedPreferences.Editor settingEditor;
 
     public static final String APP_PREFERENCES = "appSettings";
     public static final String APP_PREFERENCES_GRADE = "Grade";
@@ -17,6 +22,9 @@ public final class MyPreferences {
     public static final String SELECTED_MODULE = "MODULE_NAME";
     public static final String SELECTED_SECTION = "SECTION_NAME";
 
-
-    public static final SharedPreferences.Editor settingEditor = MainActivity.mySettings.edit();
+    public MyPreferences(Context context) {
+        this.context = context;
+        mySettings = context.getSharedPreferences(MyPreferences.APP_PREFERENCES, Context.MODE_PRIVATE);
+        settingEditor = mySettings.edit();
+    }
 }
