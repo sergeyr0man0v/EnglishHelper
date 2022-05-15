@@ -113,6 +113,9 @@ public class SettingsActivity extends AppCompatActivity {
             okBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+                    //StartActivity.openHelper.fillLocalDb();
+
                     Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                     //(Class<?>) getIntent().getSerializableExtra(SettingsActivity.currentAct));
                     //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

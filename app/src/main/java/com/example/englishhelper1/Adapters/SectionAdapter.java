@@ -11,13 +11,15 @@ import android.widget.TextView;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.domain.Section;
 
+import java.util.ArrayList;
+
 public class SectionAdapter extends ArrayAdapter<Section> {
 
     ProgressBar progressBar;
     TextView textView;
 
 
-    public SectionAdapter(Context context, Section[] sections) {
+    public SectionAdapter(Context context, ArrayList<Section> sections) {
         super(context, R.layout.adapter_section_item, sections);
     }
 

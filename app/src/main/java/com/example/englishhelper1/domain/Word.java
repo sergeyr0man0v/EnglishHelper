@@ -9,6 +9,7 @@ import java.io.Serializable;
 
 public class Word implements Parcelable {
 
+    private int id;
     private String engValue;
     private String ruValue;
     boolean isLearned = false;
@@ -25,7 +26,8 @@ public class Word implements Parcelable {
         this.sectionId = sectionId;
     }
 
-    public Word(String engValue, String ruValue, boolean isLearned) {
+    public Word(int id, String engValue, String ruValue, boolean isLearned) {
+        this.id = id;
         this.engValue = engValue;
         this.ruValue = ruValue;
         this.isLearned = isLearned;
@@ -49,6 +51,10 @@ public class Word implements Parcelable {
             return new Word[size];
         }
     };
+
+    public int getId() {
+        return id;
+    }
 
     public String getEngValue() {
         return engValue;

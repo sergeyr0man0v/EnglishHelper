@@ -29,7 +29,7 @@ public class WordListActivity extends AppCompatActivity {
 
         currentSection = (Section) getIntent().getParcelableExtra(MyPreferences.SELECTED_SECTION);
 
-        ArrayList<Word> words = new ArrayList<>();
+        /*ArrayList<Word> words = new ArrayList<>();
 
         for (Word word : ExternalData.words) {
             if(word.getSectionId() == currentSection.getId())
@@ -40,7 +40,9 @@ public class WordListActivity extends AppCompatActivity {
         Word[] data = new Word[words.size()];
         for (int i = 0; i < words.size(); i++) {
             data[i] = words.get(i);
-        }
+        }*/
+
+        ArrayList<Word> data = StartActivity.openHelper.getWordsBySectionId(currentSection.getId());
 
 
         sectionNameTv = findViewById(R.id.word_list__section_name__tv);

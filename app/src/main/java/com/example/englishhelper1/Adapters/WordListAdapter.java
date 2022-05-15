@@ -14,10 +14,11 @@ import com.example.englishhelper1.activities.SectionActivity;
 import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.domain.Word;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class WordListAdapter extends ArrayAdapter<Word> {
-    public WordListAdapter(Context context, Word[] words) {
+    public WordListAdapter(Context context, ArrayList<Word> words) {
         super(context, R.layout.adapter_word_list_item, words);
     }
 

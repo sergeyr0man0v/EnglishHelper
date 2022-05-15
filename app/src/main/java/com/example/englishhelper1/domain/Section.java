@@ -20,10 +20,11 @@ public class Section implements Parcelable {
         this.name = name;
     }
 
-    public Section(String name, String description, int moduleId) {
+    public Section(int id, String name, String description, int progress) {
+        this.id = id;
         this.name = name;
         this.description = description;
-        this.moduleId = moduleId;
+        this.progress = progress;
     }
 
     public Section(int id, String name, int moduleId, String description) {

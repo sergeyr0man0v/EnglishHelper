@@ -7,9 +7,10 @@ import java.io.Serializable;
 
 public class Module implements Parcelable {
 
+    private int id;
     private String name;
     private String description;
-    private int id;
+    private int progress;
 
     //Section[] sections;
 
@@ -22,10 +23,11 @@ public class Module implements Parcelable {
         this.description = description;
     }
 
-    public Module(String name, String description, int id) {
+    public Module(int id, String name, String description, int progress) {
         this.name = name;
         this.description = description;
         this.id = id;
+        this.progress = progress;
     }
 
     /*public Module(String name, Section[] sections) {

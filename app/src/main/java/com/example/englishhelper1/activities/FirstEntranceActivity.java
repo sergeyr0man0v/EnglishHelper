@@ -2,8 +2,10 @@ package com.example.englishhelper1.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
+import com.example.englishhelper1.rest.ServerApiVolley;
 
 public class FirstEntranceActivity extends AppCompatActivity {
 
@@ -68,9 +71,13 @@ public class FirstEntranceActivity extends AppCompatActivity {
 
         next_btn = (ImageButton) findViewById(R.id.first_entrance_activity_next_btn);
 
+        ServerApiVolley serverApiVolley = new ServerApiVolley(this);
+
         next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                serverApiVolley.fillGrade(MyPreferences.mySettings.getInt(
+                        MyPreferences.APP_PREFERENCES_GRADE, 11));
                 Intent intent = new Intent(FirstEntranceActivity.this, SettingsActivity.class);
                 //intent.putExtra(MainActivity.currentAct, MainActivity.class);
                 startActivity(intent);

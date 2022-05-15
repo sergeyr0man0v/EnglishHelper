@@ -1,6 +1,7 @@
 package com.example.englishhelper1.activities;
 
 import android.content.Intent;
+import android.graphics.Path;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.domain.Section;
+import com.example.englishhelper1.localDb.OpenHelper;
 import com.example.englishhelper1.rest.ExternalData;
 
 import java.io.Serializable;
@@ -37,10 +39,6 @@ public class ModuleActivity extends AppCompatActivity {
 
         currentModule = (Module) getIntent().getParcelableExtra(MyPreferences.SELECTED_MODULE);
 
-        /*int moduleId = (int) getIntent().getIntExtra(MyPreferences.SELECTED_MODULE, 0);
-
-        currentModule = ExternalData.modules.get(moduleId);*/
-
         moduleNameTv = findViewById(R.id.module_activity__module_name_tv);
         moduleNameTv.setText(currentModule.getName());
 
@@ -54,23 +52,10 @@ public class ModuleActivity extends AppCompatActivity {
             }
         });
 
-        /*Section[] sections = new Section[20];
-
-        for (int i = 0; i < sections.length; i++){
-            sections[i] = new Section(String.valueOf((char)(97 + i)), rnd.nextInt(100));
-        }*/
-
-        //Section[] data = currentModule.getSections();
-
-        ArrayList<Section> data = new ArrayList<>();
-
-        for (Section section: ExternalData.sections) {
-            if (section.getModuleId() == currentModule.getId())
-                data.add(section);
-        }
+        ArrayList<Section> data = StartActivity.openHelper.getSectionsByModuleId(currentModule.getId());
 
         //SectionAdapter adapter = new SectionAdapter(this, data);
-        SectionAdapter adapter = new SectionAdapter(this, data.toArray(new Section[0]));
+        SectionAdapter adapter = new SectionAdapter(this, data);
         listView = (ListView) findViewById(R.id.section_list);
         listView.setAdapter(adapter);
 

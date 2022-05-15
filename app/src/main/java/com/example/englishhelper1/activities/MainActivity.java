@@ -32,6 +32,8 @@ import com.example.englishhelper1.rest.ServerApiVolley;
 import com.example.englishhelper1.rest.models.GradeDescription;
 
 import java.io.Serializable;
+import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -50,12 +52,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (ExternalData.modules.isEmpty()) {
-            ServerApiVolley serverApiVolley = new ServerApiVolley(this);
-            serverApiVolley.fillGrade(11);
-            this.recreate();
-        }
 
         setContentView(R.layout.activity_main);
 
@@ -78,10 +74,12 @@ public class MainActivity extends AppCompatActivity {
         ///////////////////////////////////////////////
 
         //Module[] data = createTestData();
-        Module[] data = new Module[ExternalData.modules.size()];
+        /*Module[] data = new Module[ExternalData.modules.size()];
         for (int i = 0; i < data.length; i++) {
             data[i] = ExternalData.modules.get(i);
-        }
+        }*/
+
+        ArrayList<Module> data = StartActivity.openHelper.getModules();
 
         //ModuleAdapter adapter = new ModuleAdapter(this, data);
         ModuleAdapter adapter = new ModuleAdapter(this, data);
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(MainActivity.this, ModuleActivity.class);
                 //intent.putExtra(MyPreferences.SELECTED_MODULE, (Parcelable) data[i]);
-                intent.putExtra(MyPreferences.SELECTED_MODULE, data[i]);
+                intent.putExtra(MyPreferences.SELECTED_MODULE, data.get(i));
                 startActivity(intent);
             }
         });

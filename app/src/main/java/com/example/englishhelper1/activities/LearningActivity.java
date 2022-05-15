@@ -1,12 +1,14 @@
 package com.example.englishhelper1.activities;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.englishhelper1.MyPreferences;
@@ -22,6 +24,7 @@ public class LearningActivity extends AppCompatActivity {
 
     private ArrayList<Word> words;
     TextView sectionName;
+    ImageButton toSettingsBtn;
     TextView enValue;
     TextView ruValue;
     Button volumeBtn;
@@ -43,21 +46,20 @@ public class LearningActivity extends AppCompatActivity {
 
         Section section = getIntent().getParcelableExtra(MyPreferences.SELECTED_SECTION);
 
-        //words = section.getWords();
+        words = StartActivity.openHelper.getWordsBySectionId(section.getId());
 
-        words = new ArrayList<>();
-
-        Log.d("SECTION", String.valueOf(section.getId()));
-
-        for (Word word : ExternalData.words) {
-            Log.d("SECTION", String.valueOf(word.getSectionId()));
-            if(word.getSectionId() == section.getId()) {
-                words.add(word);
-            }
-        }
-        Log.d("SECTION", String.valueOf(words.size()));
+        //Log.d("SECTION", String.valueOf(words.size()));
         sectionName = findViewById(R.id.learning_activity__section_name_tv);
         sectionName.setText(section.getName());
+
+        toSettingsBtn = findViewById(R.id.learning_activity__settings_btn);
+        toSettingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LearningActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         currentWord = words.get(random.nextInt(words.size()));
@@ -102,6 +104,11 @@ public class LearningActivity extends AppCompatActivity {
 
         fillEnTv(currentWord.getEngValue());
         fillRuTv(currentWord.getRuValue());
+
+        StartActivity.openHelper.updateWordLearnedStatus(
+                currentWord.getId(),
+                true
+        );
     }
 
     private void fillEnTv(String value){

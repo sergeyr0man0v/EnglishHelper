@@ -9,8 +9,10 @@ import android.widget.TextView;
 import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.R;
 
+import java.util.ArrayList;
+
 public class ModuleAdapter extends ArrayAdapter<Module> {
-    public ModuleAdapter(Context context, Module[] modules) {
+    public ModuleAdapter(Context context, ArrayList<Module> modules) {
         super(context, R.layout.adapter_module_item, modules);
     }
 

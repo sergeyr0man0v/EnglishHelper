@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.englishhelper1.MyPreferences;
@@ -22,12 +23,19 @@ public class SectionActivity extends AppCompatActivity {
 
     public static TextToSpeech textToSpeech;
     TextView sectionNameTv;
+    ImageButton toSettingsBtn;
     TextView numberOfWordsTv;
     Button wordListBtn;
     Button toLearningBtn;
     TextView numberOfLearnedTv;
     Button toTestBtn;
 
+    @Override
+    protected void onRestart() {
+        //recreate();
+        super.onRestart();
+        recreate();
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,25 +63,18 @@ public class SectionActivity extends AppCompatActivity {
         sectionNameTv = findViewById(R.id.section_activity__section_name__tv);
         sectionNameTv.setText(currentSection.getName());
 
+        toSettingsBtn = findViewById(R.id.section_activity__settings_btn);
+        toSettingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SectionActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         numberOfWordsTv = findViewById(R.id.section_activity__number_of_words__tv);
 
-        /*ArrayList<Word> words = new ArrayList<>();
-
-        for (Word word : ExternalData.words) {
-            if(word.getSectionId() == currentSection.getId())
-                words.add(word);
-
-        }
-
-        //currentSection.setWords(words);
-
-        Word[] data = new Word[words.size()];
-        for (int i = 0; i < words.size(); i++) {
-            data[i] = words.get(i);
-        }*/
-
-        //numberOfWordsTv.setText(String.valueOf(currentSection.getWords().size()));
-        numberOfWordsTv.setText(String.valueOf(23));
+        numberOfWordsTv.setText(String.valueOf(StartActivity.openHelper.getNumberOfWords(currentSection.getId())));
 
         wordListBtn = findViewById(R.id.section_activity__word_list__btn);
         wordListBtn.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +83,7 @@ public class SectionActivity extends AppCompatActivity {
                 Intent intent = new Intent(SectionActivity.this, WordListActivity.class);
                 intent.putExtra(MyPreferences.SELECTED_SECTION, (Parcelable) currentSection);
                 //intent.putExtra("words", data);
+                //startActivityForResult(intent, 10);
                 startActivity(intent);
             }
         });
@@ -97,6 +99,11 @@ public class SectionActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        numberOfLearnedTv = findViewById(R.id.section_activity__number_of_learned__tv);
+        numberOfLearnedTv.setText(String.valueOf(
+                StartActivity.openHelper.getNumberOfLearnedWords(currentSection.getId()) +
+                "/" + numberOfWordsTv.getText()));
 
         toTestBtn = findViewById(R.id.section_activity__to_test__btn);
         toTestBtn.setOnClickListener(new View.OnClickListener() {
