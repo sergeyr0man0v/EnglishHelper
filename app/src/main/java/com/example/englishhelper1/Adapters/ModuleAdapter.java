@@ -27,6 +27,7 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
 
         //Заполнение адатера
         ((TextView) convertView.findViewById(R.id.module_item_name)).setText(module.getName());
+        ((TextView) convertView.findViewById(R.id.module_item__description__tv)).setText(module.getDescription());
 
 
 

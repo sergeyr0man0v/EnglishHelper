@@ -113,8 +113,10 @@ public class SettingsActivity extends AppCompatActivity {
             okBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    //StartActivity.openHelper.fillLocalDb();
+                    MyPreferences.settingEditor.putBoolean(
+                            MyPreferences.APP_PREFERENCES_IS_NEW_USER, false
+                    );
+                    MyPreferences.settingEditor.apply();
 
                     Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                     //(Class<?>) getIntent().getSerializableExtra(SettingsActivity.currentAct));

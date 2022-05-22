@@ -15,20 +15,13 @@
 
         <TextView
             android:id="@+id/test_activity__section_name_tv"
-            android:text=""
+            android:text="Test 1a"
             android:textSize="30sp"
             android:textColor="@color/black"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_height="match_parent"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/activity_background"
-            android:paddingRight="10dp"
-            android:src="@drawable/ic_settings_activity__gear_img" />
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
@@ -45,51 +38,21 @@
         android:id="@+id/test_activity__current_word_tv"
         android:text="Слово"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"/>
 
-
-    <RadioGroup
+    <FrameLayout
+        android:id="@+id/test_activity__fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:id="@+id/test_activity__radio_group">
+        android:padding="12dp"/>
 
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="   word1"
-            android:textColor="@color/black"
-            android:textSize="20dp"/>
-
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="   word2"
-            android:textColor="@color/black"
-            android:textSize="20dp"/>
-
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="   word3"
-            android:textColor="@color/black"
-            android:textSize="20dp"/>
-
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="   word4"
-            android:textColor="@color/black"
-            android:textSize="20dp"/>
-
-    </RadioGroup>
 
     <ImageButton
-        android:id="@+id/test_activity__ok_btn"
+        android:id="@+id/test_activity__apply_btn"
         android:paddingTop="30dp"
         android:paddingRight="30dp"
         android:layout_width="wrap_content"

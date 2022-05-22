@@ -34,9 +34,11 @@ public class Word implements Parcelable {
     }
 
     protected Word(Parcel in) {
+        id = in.readInt();
+        sectionId = in.readInt();
         engValue = in.readString();
         ruValue = in.readString();
-        isLearned = in.readByte() != 0;
+        isLearned = in.readBoolean();
     }
 
     public static final Creator<Word> CREATOR = new Creator<Word>() {
@@ -80,6 +82,8 @@ public class Word implements Parcelable {
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeInt(sectionId);
         parcel.writeString(engValue);
         parcel.writeString(ruValue);
         parcel.writeBoolean(isLearned);

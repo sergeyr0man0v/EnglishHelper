@@ -10,5 +10,17 @@
     <string name="section_activity__word_list_tv">Word list</string>
     <string name="section_activity__learning_mode_tv">Learning mode</string>
     <string name="section_activity__test_tv">Test</string>
+    <string name="section_activity__number_of_words__tv">Number of words:</string>
+    <string name="test_fragment_et__hint">Enter the translation</string>
+    <string name="result_activity__perf_res_descripit">Congratulations!!! \n Keep it up)</string>
+    <string name="result_activity__good_res_descripit">You\'re good :3</string>
+    <string name="result_activity__normal_res_descripit">Not bad \n But you can do better \n I believe in you.</string>
+    <string name="result_activity__bad_res_descripit">Try again!</string>
+    <string name="result_dialog__message1">Continue the last attempt?</string>
+    <string name="result_dialog__negative_text1">Start over</string>
+    <string name="result_dialog__positive_text1">Yes</string>
+    <string name="result_dialog__message2">Congratulations! \n You have learned all the words</string>
+    <string name="result_dialog__negative_text2">Cancel</string>
+    <string name="result_dialog__positive_text2">Go to test</string>
 
 </resources>

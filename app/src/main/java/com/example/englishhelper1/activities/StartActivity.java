@@ -16,7 +16,7 @@ import com.example.englishhelper1.rest.ServerApiVolley;
 
 public class StartActivity extends AppCompatActivity {
 
-    static OpenHelper openHelper;
+    private OpenHelper openHelper;
 
 
     @Override
@@ -25,13 +25,19 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        this.deleteDatabase("data.db");
+        //this.deleteDatabase("data.db");
 
         openHelper = new OpenHelper(this);
 
 
         MyPreferences myPreferences = new MyPreferences(this);
+
+        //MyPreferences.settingEditor.clear();
+        //MyPreferences.settingEditor.apply();
+
+        //////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         MyPreferences.settingEditor.putInt(MyPreferences.APP_PREFERENCES_GRADE, 11);
+        /////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         if (openHelper.getModules().isEmpty()) {
             MyPreferences.settingEditor.putBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, true);

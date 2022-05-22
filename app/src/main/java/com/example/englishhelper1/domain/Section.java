@@ -49,6 +49,7 @@ public class Section implements Parcelable {
         name = in.readString();
         progress = in.readInt();
         moduleId = in.readInt();
+        description = in.readString();
         //words = in.createTypedArrayList(Word.CREATOR);
     }
 
@@ -125,6 +126,7 @@ public class Section implements Parcelable {
         parcel.writeString(name);
         parcel.writeInt(progress);
         parcel.writeInt(moduleId);
+        parcel.writeString(description);
         /*Word[] words1 = words.toArray(new Word[0]);
         parcel.writeTypedArray(words1, i);*/
     }

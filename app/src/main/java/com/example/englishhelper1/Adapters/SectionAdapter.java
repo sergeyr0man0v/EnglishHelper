@@ -15,9 +15,6 @@ import java.util.ArrayList;
 
 public class SectionAdapter extends ArrayAdapter<Section> {
 
-    ProgressBar progressBar;
-    TextView textView;
-
 
     public SectionAdapter(Context context, ArrayList<Section> sections) {
         super(context, R.layout.adapter_section_item, sections);
@@ -35,6 +32,7 @@ public class SectionAdapter extends ArrayAdapter<Section> {
 
         //Заполнение адатера
         ((TextView) convertView.findViewById(R.id.section_item_name)).setText(section.getName());
+        ((TextView) convertView.findViewById(R.id.section_item__description__tv)).setText(section.getDescription());
 
         ((ProgressBar) convertView.findViewById(R.id.section_item__progressBar)).setProgress(section.getProgress());
         ((TextView) convertView.findViewById(R.id.section_item__progress_tv)).setText(String.valueOf(section.getProgress()) + "%");

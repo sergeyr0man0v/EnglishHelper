@@ -14,27 +14,31 @@ import android.widget.TextView;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.domain.Section;
+import com.example.englishhelper1.localDb.OpenHelper;
 
 import java.util.Locale;
 
 public class SectionActivity extends AppCompatActivity {
 
-    Section currentSection;
+    private Section currentSection;
 
     public static TextToSpeech textToSpeech;
-    TextView sectionNameTv;
-    ImageButton toSettingsBtn;
-    TextView numberOfWordsTv;
-    Button wordListBtn;
-    Button toLearningBtn;
-    TextView numberOfLearnedTv;
-    Button toTestBtn;
+
+    private OpenHelper openHelper;
+
+    private TextView sectionNameTv;
+    private ImageButton toSettingsBtn;
+    private TextView numberOfWordsTv;
+    private Button wordListBtn;
+    private Button toLearningBtn;
+    private TextView numberOfLearnedTv;
+    private Button toTestBtn;
 
     @Override
     protected void onRestart() {
         //recreate();
         super.onRestart();
-        recreate();
+        fillTv();
     }
 
     @Override
@@ -56,7 +60,7 @@ public class SectionActivity extends AppCompatActivity {
             }
         });;
 
-
+        openHelper = new OpenHelper(this);
 
         currentSection = (Section) getIntent().getParcelableExtra(MyPreferences.SELECTED_SECTION);
 
@@ -74,7 +78,7 @@ public class SectionActivity extends AppCompatActivity {
 
         numberOfWordsTv = findViewById(R.id.section_activity__number_of_words__tv);
 
-        numberOfWordsTv.setText(String.valueOf(StartActivity.openHelper.getNumberOfWords(currentSection.getId())));
+        numberOfWordsTv.setText(String.valueOf(openHelper.getNumberOfWords(currentSection.getId())));
 
         wordListBtn = findViewById(R.id.section_activity__word_list__btn);
         wordListBtn.setOnClickListener(new View.OnClickListener() {
@@ -101,23 +105,30 @@ public class SectionActivity extends AppCompatActivity {
         });
 
         numberOfLearnedTv = findViewById(R.id.section_activity__number_of_learned__tv);
-        numberOfLearnedTv.setText(String.valueOf(
-                StartActivity.openHelper.getNumberOfLearnedWords(currentSection.getId()) +
-                "/" + numberOfWordsTv.getText()));
+        fillTv();
 
         toTestBtn = findViewById(R.id.section_activity__to_test__btn);
         toTestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(SectionActivity.this, TestActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                intent.putExtra(MyPreferences.SELECTED_SECTION, currentSection);
+                startActivity(intent);
             }
         });
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         textToSpeech.shutdown();
+        super.onDestroy();
+    }
+
+    private void fillTv(){
+        numberOfLearnedTv.setText(String.valueOf(
+                openHelper.getNumberOfLearnedWords(currentSection.getId()) +
+                        "/" + numberOfWordsTv.getText()));
     }
 
     public static void volume(String value){

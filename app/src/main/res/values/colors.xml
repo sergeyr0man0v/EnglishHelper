@@ -11,5 +11,8 @@
     <color name="custom_progressBar_color">#20FF29</color>
     <color name="fragment_result_background">#EFC137</color>
     <color name="fragment_result__button_color">#FF5722</color>
+    <color name="secondary_text">#333333</color>
+    <color name="wrong_answer">#E85E5E</color>
+    <color name="correct_answer">#79D17D</color>
 
 </resources>

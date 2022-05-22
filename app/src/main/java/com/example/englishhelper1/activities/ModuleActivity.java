@@ -26,16 +26,22 @@ import java.util.Random;
 
 public class ModuleActivity extends AppCompatActivity {
 
-    final Random rnd = new Random();
-    Module currentModule;
-    TextView moduleNameTv;
-    ImageButton goToSettingsBtn;
-    ListView listView;
+    Random rnd = new Random();
+    private Module currentModule;
+    private TextView moduleNameTv;
+    private ImageButton goToSettingsBtn;
+    private ListView listView;
+
+    private static SectionAdapter adapter;
+
+    private OpenHelper openHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.module_activity);
+
+        openHelper = new OpenHelper(this);
 
         currentModule = (Module) getIntent().getParcelableExtra(MyPreferences.SELECTED_MODULE);
 
@@ -52,10 +58,10 @@ public class ModuleActivity extends AppCompatActivity {
             }
         });
 
-        ArrayList<Section> data = StartActivity.openHelper.getSectionsByModuleId(currentModule.getId());
+        ArrayList<Section> data = openHelper.getSectionsByModuleId(currentModule.getId());
 
         //SectionAdapter adapter = new SectionAdapter(this, data);
-        SectionAdapter adapter = new SectionAdapter(this, data);
+        adapter = new SectionAdapter(this, data);
         listView = (ListView) findViewById(R.id.section_list);
         listView.setAdapter(adapter);
 
@@ -69,6 +75,10 @@ public class ModuleActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    public static void updateAdapter(){
+        if (adapter != null)
+            adapter.notifyDataSetChanged();
     }
 }

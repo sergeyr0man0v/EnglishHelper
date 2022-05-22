@@ -45,15 +45,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
 
-    TextView gradeTv;
-    ListView listView;
-    ImageButton goToSettingsBtn;
+    private TextView gradeTv;
+    private ListView listView;
+    private ImageButton goToSettingsBtn;
+
+    private static ModuleAdapter moduleAdapter;
+
+    private OpenHelper openHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        openHelper = new OpenHelper(this);
 
         gradeTv = (TextView) findViewById(R.id.main_activity__grade_tv);
         //gradeTv.setText(String.valueOf(StartActivity.mySettings.getInt(MyPreferences.APP_PREFERENCES_GRADE, 0)) + " " + gradeTv.getText());
@@ -79,13 +85,13 @@ public class MainActivity extends AppCompatActivity {
             data[i] = ExternalData.modules.get(i);
         }*/
 
-        ArrayList<Module> data = StartActivity.openHelper.getModules();
+        ArrayList<Module> data = openHelper.getModules();
 
         //ModuleAdapter adapter = new ModuleAdapter(this, data);
-        ModuleAdapter adapter = new ModuleAdapter(this, data);
+        moduleAdapter = new ModuleAdapter(this, data);
 
         listView = (ListView) findViewById(R.id.module_list);
-        listView.setAdapter(adapter);
+        listView.setAdapter(moduleAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -99,7 +105,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    static class DataLoad extends AsyncTask<Void, Void, Void>{
+    public static void updateAdapter(){
+        if (moduleAdapter != null)
+            moduleAdapter.notifyDataSetChanged();
+    }
+
+    /*static class DataLoad extends AsyncTask<Void, Void, Void>{
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -112,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
             super.onPostExecute(unused);
         }
-    }
+    }*/
 
     /*static Module[] createTestData(){
         Module[] data = new Module[2];

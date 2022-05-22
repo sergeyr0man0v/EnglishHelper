@@ -1,19 +1,20 @@
 package com.example.englishhelper1.localDb;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
+import com.example.englishhelper1.activities.MainActivity;
+import com.example.englishhelper1.activities.ModuleActivity;
 import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.domain.Section;
 import com.example.englishhelper1.domain.Word;
 import com.example.englishhelper1.rest.ExternalData;
 
 import java.util.ArrayList;
-import java.util.WeakHashMap;
 
 public class OpenHelper extends SQLiteOpenHelper {
 
@@ -208,6 +209,7 @@ public class OpenHelper extends SQLiteOpenHelper {
                 COLUMN_ID + " = ?",
                 new String[] {String.valueOf(moduleId)}
                 );
+        MainActivity.updateAdapter();
         return true;
     }
 
@@ -218,6 +220,21 @@ public class OpenHelper extends SQLiteOpenHelper {
                 SECTIONS_TABLE,
                 contentValues,
                 COLUMN_ID + " = ?",
+                new String[] {String.valueOf(sectionId)}
+        );
+        Log.d("------------",String.valueOf(sectionId + "  " + newProgress));
+        ModuleActivity.updateAdapter();
+        return true;
+    }
+
+    public boolean updateWordLearnedStatusBySectionId(int sectionId, boolean newLearnedStatus){
+        ContentValues contentValues = new ContentValues();
+        int value = newLearnedStatus ? 1 : 0;
+        contentValues.put(COLUMN_IS_LEARNED, value);
+        dbWriteable.update(
+                WORDS_TABLE,
+                contentValues,
+                COLUMN_SECTION_ID + " = ?",
                 new String[] {String.valueOf(sectionId)}
         );
         return true;

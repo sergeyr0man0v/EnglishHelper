@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.TestFragmentRg"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/fragment_test1__rg">
+
+    <RadioButton
+        android:id="@+id/fragment_test1__rb1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="word1"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        android:textAlignment="gravity"
+        android:layout_marginBottom="12dp"/>
+
+    <RadioButton
+        android:id="@+id/fragment_test1__rb2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="word2"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        android:layout_marginBottom="12dp"/>
+
+    <RadioButton
+        android:id="@+id/fragment_test1__rb3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="word3"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        android:layout_marginBottom="12dp"/>
+
+    <RadioButton
+        android:id="@+id/fragment_test1__rb4"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="word4"
+        android:textColor="@color/black"
+        android:textSize="27sp" />
+
+</RadioGroup>

@@ -2,6 +2,7 @@ package com.example.englishhelper1.rest;
 
 import android.content.Context;
 import android.graphics.Path;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -10,6 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.englishhelper1.MyPreferences;
+import com.example.englishhelper1.activities.MainActivity;
 import com.example.englishhelper1.activities.StartActivity;
 import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.domain.Section;
@@ -19,6 +21,8 @@ import com.example.englishhelper1.localDb.OpenHelper;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.net.MulticastSocket;
 
 public class ServerApiVolley implements ServerApi{
 
@@ -102,14 +106,19 @@ public class ServerApiVolley implements ServerApi{
 
                                 }
                             }
-                            Thread thread = new Thread(new Runnable() {
+
+
+                            /*Thread thread = new Thread(new Runnable() {
                                 @Override
                                 public void run() {
                                     OpenHelper openHelper = new OpenHelper(context);
                                     openHelper.fillLocalDb();
                                 }
                             });
-                            thread.start();
+                            thread.start();*/
+
+                            LocalDbTask localDbTask = new LocalDbTask();
+                            localDbTask.execute();
                             MyPreferences.settingEditor.putBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, false);
 
                         } catch (JSONException e) {
@@ -121,6 +130,21 @@ public class ServerApiVolley implements ServerApi{
         );
 
         requestQueue.add(arrayRequest);
+    }
+    class LocalDbTask extends AsyncTask{
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            OpenHelper openHelper = new OpenHelper(context);
+            openHelper.fillLocalDb();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            MainActivity.updateAdapter();
+            super.onPostExecute(o);
+        }
     }
 
     /*@Override

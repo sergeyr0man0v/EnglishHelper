@@ -3,8 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_custom_toast5.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__bad1.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__bad2.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__bad3.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__good1.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__good2.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__good3.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__normal1.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__normal2.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__normal3.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__normal_result__img.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__perf1.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__perf2.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__perf3.xml" value="0.3828125" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_result_activity__perfect_result__img.xml" value="0.325" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/drawable/ic_settings_activity__rus_btn.xml" value="0.3828125" />
         <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/activity_result.xml" value="0.18" />
         <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/activity_start.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/adapter_mistake_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/adapter_module_item.xml" value="0.30625" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/adapter_section_item.xml" value="0.30625" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/adapter_word_list_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/dialog_learning_result.xml" value="0.22708333333333333" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/fragment_result.xml" value="0.30885416666666665" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/fragment_test1.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/fragment_test_et.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/learning_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/module_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/susli/AndroidStudioProjects/EnglishHelper/app/src/main/res/layout/section_activity.xml" value="0.36666666666666664" />
@@ -50,6 +75,9 @@
         <entry key="..\:/Users/susli/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.17291666666666666" />
       </map>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_result.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

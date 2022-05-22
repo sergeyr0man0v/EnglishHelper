@@ -22,6 +22,10 @@ public final class MyPreferences {
     public static final String SELECTED_MODULE = "MODULE_NAME";
     public static final String SELECTED_SECTION = "SECTION_NAME";
 
+    public static final String RESULT_VALUE = "resultValue";
+    public static final String WRONG_ANSWERS_ID = "wrongAnswersId";
+    public static final String WRONG_ANSWERS = "wrongAnswers";
+
     public MyPreferences(Context context) {
         this.context = context;
         mySettings = context.getSharedPreferences(MyPreferences.APP_PREFERENCES, Context.MODE_PRIVATE);

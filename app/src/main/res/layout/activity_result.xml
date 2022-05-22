@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.ResultActivity"
+    android:orientation="vertical"
+    android:id="@+id/result_activity__ll"
+    android:background="@color/activity_background">
+
+    <android.support.v4.widget.Space
+        android:id="@+id/result_activity__space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/result_activity__result_description__tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Поздравляем!!! \n Так держать)"
+            android:textAlignment="center"
+            android:textColor="@color/secondary_text"
+            android:textSize="25sp"/>
+
+        <ImageView
+            android:id="@+id/result_activity__img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_result_activity__bad1"
+            android:layout_gravity="center"
+            android:paddingEnd="20dp"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/result_activity__result__tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ваш результат: "
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:padding="20dp"/>
+
+    <Button
+        android:id="@+id/result_activity__mistakes__btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Посмотреть ошибки"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:padding="20dp"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/result_activity__rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        android:padding="12dp"/>
+
+</LinearLayout>
