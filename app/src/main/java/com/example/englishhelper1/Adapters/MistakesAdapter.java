@@ -10,7 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.englishhelper1.R;
+import com.example.englishhelper1.activities.MainActivity;
 import com.example.englishhelper1.activities.SectionActivity;
+import com.example.englishhelper1.activities.StartActivity;
 import com.example.englishhelper1.domain.Mistake;
 
 import java.util.List;
@@ -65,7 +67,7 @@ public class MistakesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SectionActivity.volume(mistake.getCorrectAnswer());
+                StartActivity.speaker.volume(mistake.getCorrectAnswer());
             }
         });
 

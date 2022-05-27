@@ -103,6 +103,8 @@ public class TestActivity extends AppCompatActivity {
                     Intent intent = new Intent(TestActivity.this, ResultActivity.class);
                     intent.putExtra(MyPreferences.RESULT_VALUE, result);
                     intent.putExtra(MyPreferences.WRONG_ANSWERS, mistakes);
+                    intent.putExtra(MyPreferences.SELECTED_SECTION, currentSection);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                     startActivity(intent);
                 }
             }
@@ -111,6 +113,7 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private void fillViews(Word current){
+        Log.d("PODSKAZKA", current.getEngValue());
         fillTv(current.getRuValue());
 
         if (notAnswered.size() % 3 == 0){

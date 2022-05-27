@@ -1,3 +1,4 @@
+/*
 package com.example.englishhelper1.rest;
 
 import com.example.englishhelper1.rest.models.GradeDescription;
@@ -25,3 +26,4 @@ public interface ExternalDatabaseService {
                                         @Path("section_num") int section);
 
 }
+*/

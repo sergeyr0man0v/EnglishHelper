@@ -1,29 +1,10 @@
 package com.example.englishhelper1.rest;
 
-import android.os.AsyncTask;
-import android.util.Log;
-
 import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.domain.Section;
 import com.example.englishhelper1.domain.Word;
-import com.example.englishhelper1.domain.mapper.ModuleMapper;
-import com.example.englishhelper1.domain.mapper.SectionMapper;
-import com.example.englishhelper1.domain.mapper.WordMapper;
-import com.example.englishhelper1.rest.models.GradeDescription;
-import com.example.englishhelper1.rest.models.ModuleDescription;
-import com.example.englishhelper1.rest.models.SectionDescription;
-import com.example.englishhelper1.rest.models.ServerWord;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ExternalData {
 

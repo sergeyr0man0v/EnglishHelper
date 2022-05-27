@@ -22,8 +22,6 @@ public class SectionActivity extends AppCompatActivity {
 
     private Section currentSection;
 
-    public static TextToSpeech textToSpeech;
-
     private OpenHelper openHelper;
 
     private TextView sectionNameTv;
@@ -36,29 +34,14 @@ public class SectionActivity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
-        //recreate();
+        recreate();
         super.onRestart();
-        fillTv();
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.section_activity);
-
-        //////////////////////////////
-        ///объявление и инициализация TextToSpeech
-        //////////////////////////////
-
-        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override public void onInit(int initStatus) {
-                if (initStatus == TextToSpeech.SUCCESS) {
-                    textToSpeech.setLanguage(Locale.US);
-                    textToSpeech.setPitch(1.3f);
-                    textToSpeech.setSpeechRate(0.7f);
-                }
-            }
-        });;
 
         openHelper = new OpenHelper(this);
 
@@ -119,20 +102,9 @@ public class SectionActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onDestroy() {
-        textToSpeech.shutdown();
-        super.onDestroy();
-    }
-
     private void fillTv(){
         numberOfLearnedTv.setText(String.valueOf(
                 openHelper.getNumberOfLearnedWords(currentSection.getId()) +
                         "/" + numberOfWordsTv.getText()));
-    }
-
-    public static void volume(String value){
-        String utteranceId = String.valueOf(value.hashCode());
-        SectionActivity.textToSpeech.speak(value, TextToSpeech.QUEUE_FLUSH,null, utteranceId);
     }
 }

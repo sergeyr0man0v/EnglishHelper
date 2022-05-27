@@ -131,15 +131,14 @@
         android:layout_height="wrap_content"
         android:background="@color/activity_background"
         android:src="@drawable/ic_settings_activity__ok_btn"
-        android:layout_gravity="right"
-        android:visibility="gone"/>
+        android:layout_gravity="right"/>
 
-    <Button
+    <!--<Button
         android:id="@+id/settings_activity__clear_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Очистить"
-        android:layout_marginLeft="30dp"/>
+        android:layout_marginLeft="30dp"/>-->
 
     <android.support.v4.widget.Space
         android:layout_width="match_parent"

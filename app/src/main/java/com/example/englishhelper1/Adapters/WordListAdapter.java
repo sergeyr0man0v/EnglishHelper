@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.englishhelper1.R;
+import com.example.englishhelper1.activities.MainActivity;
 import com.example.englishhelper1.activities.SectionActivity;
+import com.example.englishhelper1.activities.StartActivity;
 import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.domain.Word;
 
@@ -43,7 +45,7 @@ public class WordListAdapter extends ArrayAdapter<Word> {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        SectionActivity.volume(word.getEngValue());
+                        StartActivity.speaker.volume(word.getEngValue());
                     }
                 });
 
