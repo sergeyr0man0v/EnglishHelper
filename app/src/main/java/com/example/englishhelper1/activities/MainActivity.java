@@ -2,7 +2,6 @@ package com.example.englishhelper1.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,12 +12,10 @@ import android.widget.TextView;
 import com.example.englishhelper1.Adapters.ModuleAdapter;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.Speaker;
-import com.example.englishhelper1.domain.Module;
 import com.example.englishhelper1.localDb.OpenHelper;
+import com.example.englishhelper1.models.Module;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 

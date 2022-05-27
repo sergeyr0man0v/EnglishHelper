@@ -1,24 +1,17 @@
 package com.example.englishhelper1.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.domain.Word;
-import com.example.englishhelper1.rest.ExternalData;
-import com.example.englishhelper1.rest.ServerApiVolley;
 
 import java.util.HashMap;
 import java.util.Locale;

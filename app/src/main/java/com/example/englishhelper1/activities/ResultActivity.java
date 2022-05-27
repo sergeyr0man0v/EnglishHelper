@@ -1,25 +1,21 @@
 package com.example.englishhelper1.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Space;
 import android.widget.TextView;
 
 import com.example.englishhelper1.Adapters.MistakesAdapter;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.domain.Mistake;
-import com.example.englishhelper1.domain.Section;
+import com.example.englishhelper1.models.Mistake;
+import com.example.englishhelper1.models.Section;
 
-import java.awt.font.TextAttribute;
 import java.util.ArrayList;
 import java.util.Random;
 

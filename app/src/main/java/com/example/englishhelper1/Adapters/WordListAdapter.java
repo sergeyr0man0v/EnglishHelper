@@ -1,7 +1,6 @@
 package com.example.englishhelper1.Adapters;
 
 import android.content.Context;
-import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.activities.MainActivity;
-import com.example.englishhelper1.activities.SectionActivity;
 import com.example.englishhelper1.activities.StartActivity;
-import com.example.englishhelper1.domain.Module;
-import com.example.englishhelper1.domain.Word;
+import com.example.englishhelper1.models.Word;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class WordListAdapter extends ArrayAdapter<Word> {
     public WordListAdapter(Context context, ArrayList<Word> words) {
