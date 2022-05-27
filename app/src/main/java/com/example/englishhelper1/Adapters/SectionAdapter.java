@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.domain.Section;
+import com.example.englishhelper1.models.Section;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,6 @@
 package com.example.englishhelper1.activities;
 
 import android.content.Intent;
-import android.graphics.Path;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -15,12 +14,10 @@ import android.widget.TextView;
 import com.example.englishhelper1.Adapters.SectionAdapter;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.domain.Module;
-import com.example.englishhelper1.domain.Section;
+import com.example.englishhelper1.models.Module;
+import com.example.englishhelper1.models.Section;
 import com.example.englishhelper1.localDb.OpenHelper;
-import com.example.englishhelper1.rest.ExternalData;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 

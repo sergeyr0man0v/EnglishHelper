@@ -1,18 +1,12 @@
 package com.example.englishhelper1.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.localDb.OpenHelper;
-import com.example.englishhelper1.rest.ExternalData;
-import com.example.englishhelper1.rest.ServerApiVolley;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -25,15 +19,15 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        //this.deleteDatabase("data.db");
+        this.deleteDatabase("data.db");
 
         openHelper = new OpenHelper(this);
 
 
         MyPreferences myPreferences = new MyPreferences(this);
 
-        //MyPreferences.settingEditor.clear();
-        //MyPreferences.settingEditor.apply();
+        MyPreferences.settingEditor.clear();
+        MyPreferences.settingEditor.apply();
 
         //////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         MyPreferences.settingEditor.putInt(MyPreferences.APP_PREFERENCES_GRADE, 11);

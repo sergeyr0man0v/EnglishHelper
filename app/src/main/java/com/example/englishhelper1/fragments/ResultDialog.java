@@ -1,5 +1,6 @@
 package com.example.englishhelper1.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +14,9 @@ import android.widget.TextView;
 
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.activities.TestActivity;
+
+@SuppressLint("ValidFragment")
+
 
 public class ResultDialog extends AppCompatDialogFragment {
 
@@ -33,9 +37,6 @@ public class ResultDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        /*LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_learning_result, null);*/
 
         switch (variable){
             case 1:

@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.domain.Mistake;
-import com.example.englishhelper1.domain.Section;
-import com.example.englishhelper1.domain.Word;
+import com.example.englishhelper1.models.Mistake;
+import com.example.englishhelper1.models.Section;
+import com.example.englishhelper1.models.Word;
 import com.example.englishhelper1.fragments.FragmentData;
 import com.example.englishhelper1.fragments.TestFragmentEt;
 import com.example.englishhelper1.fragments.TestFragmentRg;

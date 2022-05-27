@@ -26,6 +26,7 @@
     <string name="result_dialog__message2">Поздравляем! \n Вы выучили все вслова</string>
     <string name="result_dialog__negative_text2">Отменить</string>
     <string name="result_dialog__positive_text2">Перейти к тесту</string>
+    <string name="result_activity__view_mistakes">Посмотреть ошибки</string>
 
 
 </resources>

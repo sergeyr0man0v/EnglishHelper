@@ -22,5 +22,6 @@
     <string name="result_dialog__message2">Congratulations! \n You have learned all the words</string>
     <string name="result_dialog__negative_text2">Cancel</string>
     <string name="result_dialog__positive_text2">Go to test</string>
+    <string name="result_activity__view_mistakes">View mistakes</string>
 
 </resources>

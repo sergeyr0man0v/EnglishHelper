@@ -1,11 +1,9 @@
-package com.example.englishhelper1.domain;
+package com.example.englishhelper1.models;
 
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.RequiresApi;
-
-import java.io.Serializable;
 
 public class Word implements Parcelable {
 

@@ -1,7 +1,6 @@
 package com.example.englishhelper1.rest;
 
 import android.content.Context;
-import android.graphics.Path;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -12,17 +11,14 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.activities.MainActivity;
-import com.example.englishhelper1.activities.StartActivity;
-import com.example.englishhelper1.domain.Module;
-import com.example.englishhelper1.domain.Section;
-import com.example.englishhelper1.domain.Word;
+import com.example.englishhelper1.models.Module;
+import com.example.englishhelper1.models.Section;
+import com.example.englishhelper1.models.Word;
 import com.example.englishhelper1.localDb.OpenHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.net.MulticastSocket;
 
 public class ServerApiVolley implements ServerApi{
 

@@ -1,13 +1,9 @@
 package com.example.englishhelper1.activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -15,11 +11,10 @@ import android.widget.TextView;
 
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.domain.Section;
-import com.example.englishhelper1.domain.Word;
+import com.example.englishhelper1.models.Section;
+import com.example.englishhelper1.models.Word;
 import com.example.englishhelper1.fragments.ResultDialog;
 import com.example.englishhelper1.localDb.OpenHelper;
-import com.example.englishhelper1.rest.ExternalData;
 
 import java.util.ArrayList;
 import java.util.Random;

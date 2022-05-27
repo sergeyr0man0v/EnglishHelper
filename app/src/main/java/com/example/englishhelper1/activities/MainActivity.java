@@ -1,18 +1,8 @@
 package com.example.englishhelper1.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Parcelable;
-import android.preference.PreferenceManager;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -22,25 +12,11 @@ import android.widget.TextView;
 import com.example.englishhelper1.Adapters.ModuleAdapter;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.domain.Module;
-import com.example.englishhelper1.domain.Section;
-import com.example.englishhelper1.domain.Word;
+import com.example.englishhelper1.models.Module;
 import com.example.englishhelper1.localDb.OpenHelper;
-import com.example.englishhelper1.rest.ExternalData;
-import com.example.englishhelper1.rest.ExternalDatabaseService;
-import com.example.englishhelper1.rest.ServerApiVolley;
 import com.example.englishhelper1.rest.models.GradeDescription;
 
-import java.io.Serializable;
-import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 

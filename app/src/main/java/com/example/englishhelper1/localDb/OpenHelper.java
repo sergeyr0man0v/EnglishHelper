@@ -9,9 +9,9 @@ import android.util.Log;
 
 import com.example.englishhelper1.activities.MainActivity;
 import com.example.englishhelper1.activities.ModuleActivity;
-import com.example.englishhelper1.domain.Module;
-import com.example.englishhelper1.domain.Section;
-import com.example.englishhelper1.domain.Word;
+import com.example.englishhelper1.models.Module;
+import com.example.englishhelper1.models.Section;
+import com.example.englishhelper1.models.Word;
 import com.example.englishhelper1.rest.ExternalData;
 
 import java.util.ArrayList;

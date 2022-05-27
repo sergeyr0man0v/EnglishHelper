@@ -1,9 +1,8 @@
-package com.example.englishhelper1.domain;
+package com.example.englishhelper1.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Section implements Parcelable {

@@ -1,9 +1,7 @@
-package com.example.englishhelper1.domain;
+package com.example.englishhelper1.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.io.Serializable;
 
 public class Module implements Parcelable {
 
