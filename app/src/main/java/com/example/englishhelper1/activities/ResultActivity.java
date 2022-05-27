@@ -1,19 +1,25 @@
 package com.example.englishhelper1.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import com.example.englishhelper1.Adapters.MistakesAdapter;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
-import com.example.englishhelper1.models.Mistake;
+import com.example.englishhelper1.domain.Mistake;
+import com.example.englishhelper1.domain.Section;
 
+import java.awt.font.TextAttribute;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -25,10 +31,14 @@ public class ResultActivity extends AppCompatActivity {
     private ImageView img;
 
     private Button viewMistakesBtn;
+    private Button tryAgainBtn;
     private RecyclerView recyclerView;
     private MistakesAdapter adapter;
 
     private int result;
+    private Section section;
+
+    private boolean opened = false;
 
     private ArrayList<Mistake> mistakes;
 
@@ -42,6 +52,8 @@ public class ResultActivity extends AppCompatActivity {
         result = getIntent().getIntExtra(MyPreferences.RESULT_VALUE, 3);
 
         mistakes = getIntent().getParcelableArrayListExtra(MyPreferences.WRONG_ANSWERS);
+
+        //section = getIntent().getParcelableExtra(MyPreferences.SELECTED_SECTION);
 
         resultDescriptionTv = findViewById(R.id.result_activity__result_description__tv);
         img = findViewById(R.id.result_activity__img);
@@ -59,12 +71,42 @@ public class ResultActivity extends AppCompatActivity {
         viewMistakesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int weight;
+                if (opened){
+                    weight = 0;
+                } else {
+                    weight = 100;
+                }
+                opened = !opened;
                 LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         0,
-                        100
+                        weight
                 );
                 recyclerView.setLayoutParams(param);
+            }
+        });
+
+        tryAgainBtn = findViewById(R.id.result_activity__try_again__btn);
+        if (result == 100){
+            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+                    0,
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    0
+            );
+            tryAgainBtn.setLayoutParams(param);
+        }
+        tryAgainBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ResultActivity.this, TestActivity.class);
+                section = getIntent().getParcelableExtra(MyPreferences.SELECTED_SECTION);
+                intent.putExtra(MyPreferences.SELECTED_SECTION, section);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                /*getParent().recreate();
+                finish();*/
+
             }
         });
     }

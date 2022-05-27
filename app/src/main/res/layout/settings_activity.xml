@@ -131,8 +131,7 @@
         android:layout_height="wrap_content"
         android:background="@color/activity_background"
         android:src="@drawable/ic_settings_activity__ok_btn"
-        android:layout_gravity="right"
-        android:visibility="gone"/>
+        android:layout_gravity="right"/>
 
     <!--<Button
         android:id="@+id/settings_activity__clear_btn"

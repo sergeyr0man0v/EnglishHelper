@@ -74,6 +74,12 @@ public class ModuleActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onRestart() {
+        recreate();
+        super.onRestart();
+    }
+
     public static void updateAdapter(){
         if (adapter != null)
             adapter.notifyDataSetChanged();

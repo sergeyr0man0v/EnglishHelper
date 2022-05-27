@@ -24,6 +24,7 @@ public class LearningActivity extends AppCompatActivity implements ResultDialog.
     private Section currentSection;
     private ArrayList<Word> words;
     private ArrayList<Word> notLearned;
+    private TextView numberOfWords;
     private TextView sectionName;
     private ImageButton toSettingsBtn;
     private TextView enValue;
@@ -33,8 +34,6 @@ public class LearningActivity extends AppCompatActivity implements ResultDialog.
     private Word currentWord;
 
     private OpenHelper openHelper;
-
-    //int currentWord = 0;
 
     Random random = new Random();
     boolean autoVolume = MyPreferences.mySettings.getBoolean(
@@ -125,9 +124,14 @@ public class LearningActivity extends AppCompatActivity implements ResultDialog.
         if (autoVolume){
             volume();
         }
-
+        fillNumberTv();
         fillEnTv(currentWord.getEngValue());
         fillRuTv(currentWord.getRuValue());
+    }
+
+    private void fillNumberTv(){
+        numberOfWords = findViewById(R.id.learning_activity__number_of_words__tv);
+        numberOfWords.setText(words.size() - notLearned.size() + "/" + words.size());
     }
 
     private void fillEnTv(String value){
@@ -141,7 +145,7 @@ public class LearningActivity extends AppCompatActivity implements ResultDialog.
     }
 
     private void volume(){
-        SectionActivity.volume(currentWord.getEngValue());
+        StartActivity.speaker.volume(currentWord.getEngValue());
     }
 
     @Override

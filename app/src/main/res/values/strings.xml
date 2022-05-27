@@ -13,9 +13,9 @@
     <string name="section_activity__number_of_words__tv">Всего слов:</string>
     <string name="test_fragment_et__hint">Введите перевод слова</string>
 
-    <string name="result_activity__perf_res_descripit">Поздравляю!!! \n  Так держать)</string>
+    <string name="result_activity__perf_res_descripit">Поздравляю!!! \nТак держать)</string>
     <string name="result_activity__good_res_descripit">Ты молодец :3</string>
-    <string name="result_activity__normal_res_descripit">Неплохо \n Но ты можешь лучше \n Я в тебя верю</string>
+    <string name="result_activity__normal_res_descripit">Неплохо \nНо ты можешь лучше \nЯ в тебя верю</string>
     <string name="result_activity__bad_res_descripit">Попробуй еще раз!</string>
 
 
@@ -23,10 +23,12 @@
     <string name="result_dialog__negative_text1">Начать сначала</string>
     <string name="result_dialog__positive_text1">Да</string>
 
-    <string name="result_dialog__message2">Поздравляем! \n Вы выучили все вслова</string>
+    <string name="result_dialog__message2">Поздравляем! \nВы выучили все вслова</string>
     <string name="result_dialog__negative_text2">Отменить</string>
     <string name="result_dialog__positive_text2">Перейти к тесту</string>
-    <string name="result_activity__view_mistakes">Посмотреть ошибки</string>
+    <string name="result_activity__result__tv">Ваш результат:</string>
+    <string name="result_activity__try_again_btn">Попробовать еще</string>
+    <string name="result_activity__view_mistakes__btn">Посмотреть ошибки</string>
 
 
 </resources>
