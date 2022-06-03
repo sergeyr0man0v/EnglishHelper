@@ -1,4 +1,4 @@
-package com.example.englishhelper1.Adapters;
+package com.example.englishhelper1.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

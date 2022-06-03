@@ -28,7 +28,8 @@ public final class MyPreferences {
 
     public MyPreferences(Context context) {
         this.context = context;
-        mySettings = context.getSharedPreferences(MyPreferences.APP_PREFERENCES, Context.MODE_PRIVATE);
+        mySettings = context.getSharedPreferences(MyPreferences.APP_PREFERENCES,
+                Context.MODE_PRIVATE);
         settingEditor = mySettings.edit();
     }
 }

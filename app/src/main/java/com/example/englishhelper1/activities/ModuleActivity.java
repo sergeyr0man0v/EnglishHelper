@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.englishhelper1.Adapters.SectionAdapter;
+import com.example.englishhelper1.adapters.SectionAdapter;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.models.Module;

@@ -1,6 +1,7 @@
 package com.example.englishhelper1.activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.englishhelper1.Adapters.ModuleAdapter;
+import com.example.englishhelper1.adapters.ModuleAdapter;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.localDb.OpenHelper;
@@ -79,11 +80,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
+    /*@Override
     protected void onRestart() {
-        recreate();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            this.recreate();
+        }
         super.onRestart();
-    }
+    }*/
 
     /*@Override
     protected void onDestroy() {
@@ -94,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
     public static void updateAdapter(){
         if (moduleAdapter != null)
             moduleAdapter.notifyDataSetChanged();
+        //this.onCreate(null);
     }
 
 

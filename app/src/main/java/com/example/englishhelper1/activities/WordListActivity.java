@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.englishhelper1.Adapters.WordListAdapter;
+import com.example.englishhelper1.adapters.WordListAdapter;
 import com.example.englishhelper1.MyPreferences;
 import com.example.englishhelper1.R;
 import com.example.englishhelper1.models.Section;

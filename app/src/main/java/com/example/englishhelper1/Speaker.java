@@ -1,11 +1,8 @@
 package com.example.englishhelper1;
 
 
-import android.app.Application;
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
-
-import com.example.englishhelper1.activities.SectionActivity;
 
 import java.util.Locale;
 

@@ -25,7 +25,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        //this.deleteDatabase("data.db");
+        this.deleteDatabase("data.db");
 
         speaker = new Speaker(this);
 
@@ -34,8 +34,8 @@ public class StartActivity extends AppCompatActivity {
 
         MyPreferences myPreferences = new MyPreferences(this);
 
-        //MyPreferences.settingEditor.clear();
-        //MyPreferences.settingEditor.apply();
+        MyPreferences.settingEditor.clear();
+        MyPreferences.settingEditor.apply();
         String lang = MyPreferences.mySettings.getString(
                 MyPreferences.APP_PREFERENCES_LANGUAGE, "ru"
         );

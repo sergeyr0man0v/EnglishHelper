@@ -61,7 +61,7 @@ public class LearningActivity extends AppCompatActivity implements ResultDialog.
         //////////////////////////////////////////////////////////////////
         if (notLearned.size() == 0){
             openHelper.updateWordLearnedStatusBySectionId(currentSection.getId(),false);
-            notLearned = words;
+            notLearned = new ArrayList<>(words);
         }else if (words.size() != notLearned.size()){
             ResultDialog resultDialog = new ResultDialog(1);
             resultDialog.show(getSupportFragmentManager(), "result_dialog1");
