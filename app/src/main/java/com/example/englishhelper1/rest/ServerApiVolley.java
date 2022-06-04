@@ -115,7 +115,7 @@ public class ServerApiVolley implements ServerApi{
 
                             LocalDbTask localDbTask = new LocalDbTask();
                             localDbTask.execute();
-                            MyPreferences.settingEditor.putBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, false);
+                            //MyPreferences.settingEditor.putBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, false);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -138,7 +138,6 @@ public class ServerApiVolley implements ServerApi{
 
         @Override
         protected void onPostExecute(Object o) {
-            MainActivity.updateAdapter();
             super.onPostExecute(o);
         }
     }

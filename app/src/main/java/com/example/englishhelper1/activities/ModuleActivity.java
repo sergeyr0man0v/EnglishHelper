@@ -29,7 +29,7 @@ public class ModuleActivity extends AppCompatActivity {
     private ImageButton goToSettingsBtn;
     private ListView listView;
 
-    private static SectionAdapter adapter;
+    private SectionAdapter adapter;
 
     private OpenHelper openHelper;
 
@@ -76,12 +76,14 @@ public class ModuleActivity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
-        recreate();
+        if (adapter != null){
+            adapter.notifyDataSetChanged();
+        }
         super.onRestart();
     }
 
-    public static void updateAdapter(){
+    /*public static void updateAdapter(){
         if (adapter != null)
             adapter.notifyDataSetChanged();
-    }
+    }*/
 }

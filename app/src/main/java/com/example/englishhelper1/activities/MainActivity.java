@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private ImageButton goToSettingsBtn;
 
-    private static ModuleAdapter moduleAdapter;
+    private ModuleAdapter moduleAdapter;
 
     private OpenHelper openHelper;
 
@@ -40,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
         ///объявление и инициализация TextToSpeech
         //////////////////////////////
 
-        openHelper = new OpenHelper(this);
+        openHelper = new OpenHelper(getApplicationContext());
+
+        MyPreferences myPreferences = new MyPreferences(getApplicationContext());
+        MyPreferences.settingEditor.putBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, false);
 
         gradeTv = (TextView) findViewById(R.id.main_activity__grade_tv);
         //gradeTv.setText(String.valueOf(StartActivity.mySettings.getInt(MyPreferences.APP_PREFERENCES_GRADE, 0)) + " " + gradeTv.getText());
@@ -80,25 +83,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*@Override
+    @Override
     protected void onRestart() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            this.recreate();
+        if (moduleAdapter != null){
+            moduleAdapter.notifyDataSetChanged();
         }
         super.onRestart();
-    }*/
+    }
 
-    /*@Override
-    protected void onDestroy() {
-        speaker.shutdown();
-        super.onDestroy();
-    }*/
-
-    public static void updateAdapter(){
+    /*public static void updateAdapter(){
         if (moduleAdapter != null)
             moduleAdapter.notifyDataSetChanged();
         //this.onCreate(null);
-    }
+    }*/
 
 
 }

@@ -27,12 +27,12 @@ public class StartActivity extends AppCompatActivity {
 
         this.deleteDatabase("data.db");
 
-        speaker = new Speaker(this);
+        speaker = new Speaker(getApplicationContext());
 
-        openHelper = new OpenHelper(this);
+        openHelper = new OpenHelper(getApplicationContext());
 
 
-        MyPreferences myPreferences = new MyPreferences(this);
+        MyPreferences myPreferences = new MyPreferences(getApplicationContext());
 
         MyPreferences.settingEditor.clear();
         MyPreferences.settingEditor.apply();
@@ -51,12 +51,12 @@ public class StartActivity extends AppCompatActivity {
         if (openHelper.getModules().isEmpty()) {
             MyPreferences.settingEditor.putBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, true);
             Intent intent = new Intent(this, HelloActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         } else{
             MyPreferences.settingEditor.putBoolean(MyPreferences.APP_PREFERENCES_IS_NEW_USER, false);
             Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
     }

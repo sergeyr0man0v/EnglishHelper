@@ -22,6 +22,8 @@ public class SettingsActivity extends AppCompatActivity {
     private TextView tv1;
     private ImageButton volumeBtn;
 
+    private MyPreferences myPreferences;
+
     private boolean autoVolume = true;
 
     @Override
@@ -30,13 +32,15 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
+        myPreferences = new MyPreferences(getApplicationContext());
+
         tv1 = (TextView) findViewById(R.id.settings_activity__grade_tv);
         tv1.setText(String.valueOf(MyPreferences.mySettings.getInt(MyPreferences.APP_PREFERENCES_GRADE, 0)));
-
 
         volumeBtn = (ImageButton) findViewById(R.id.settings_activity__volume_btn);
         if (!MyPreferences.mySettings.getBoolean(MyPreferences.APP_PREFERENCES_AUTO_VOLUME, true)) {
             volumeBtn.setImageResource(R.drawable.ic_volume_off_icon);
+            autoVolume = false;
         }
         volumeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,10 +102,11 @@ public class SettingsActivity extends AppCompatActivity {
                     );
                     MyPreferences.settingEditor.apply();
                     Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
+                } else {
+                    SettingsActivity.super.onBackPressed();
                 }
-                SettingsActivity.super.onBackPressed();
             }
         });
         /*Button clearBtn = findViewById(R.id.settings_activity__clear_btn);

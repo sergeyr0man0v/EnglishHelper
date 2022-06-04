@@ -21,8 +21,10 @@ import com.example.englishhelper1.rest.ServerApiVolley;
 public class FirstEntranceActivity extends AppCompatActivity {
 
     public static int lastSemesterMark;
-    ImageButton[] marksBtn;
-    ImageButton next_btn;
+    private ImageButton[] marksBtn;
+    private ImageButton next_btn;
+
+    private MyPreferences mySettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,9 @@ public class FirstEntranceActivity extends AppCompatActivity {
 
         // Вызываем адаптер
         spinner.setAdapter(adapter);
+
+        mySettings = new MyPreferences(getApplicationContext());
+
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

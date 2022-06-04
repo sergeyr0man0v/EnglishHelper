@@ -34,7 +34,7 @@ public class SectionActivity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
-        recreate();
+        fillTv();
         super.onRestart();
     }
 

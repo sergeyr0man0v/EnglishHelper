@@ -209,7 +209,6 @@ public class OpenHelper extends SQLiteOpenHelper {
                 COLUMN_ID + " = ?",
                 new String[] {String.valueOf(moduleId)}
                 );
-        MainActivity.updateAdapter();
         return true;
     }
 
@@ -223,7 +222,6 @@ public class OpenHelper extends SQLiteOpenHelper {
                 new String[] {String.valueOf(sectionId)}
         );
         Log.d("------------",String.valueOf(sectionId + "  " + newProgress));
-        ModuleActivity.updateAdapter();
         return true;
     }
 
