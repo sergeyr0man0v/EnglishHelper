@@ -81,6 +81,7 @@ public class ModuleActivity extends AppCompatActivity {
         }
         super.onRestart();
     }
+    
 
     /*public static void updateAdapter(){
         if (adapter != null)

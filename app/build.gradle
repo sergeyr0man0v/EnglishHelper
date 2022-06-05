@@ -10,6 +10,12 @@ android {
             keyAlias 'key0'
             keyPassword '2408326'
         }
+        sign1 {
+            storeFile file('C:\\Users\\susli\\AndroidStudioProjects\\EnglishHelper\\release.jks')
+            storePassword '2408326'
+            keyAlias 'key0'
+            keyPassword '2408326'
+        }
     }
     compileSdk 31
 
